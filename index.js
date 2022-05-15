@@ -231,7 +231,7 @@ const removeStyleTags = ({ page }) =>
 
 const removeScriptTags = ({ page }) =>
   page.evaluate(() => {
-    Array.from(document.querySelectorAll("script")).forEach(ell => {
+    Array.from(document.querySelectorAll("script:not(.keep)")).forEach(ell => {
       ell.parentElement && ell.parentElement.removeChild(ell);
     });
   });
